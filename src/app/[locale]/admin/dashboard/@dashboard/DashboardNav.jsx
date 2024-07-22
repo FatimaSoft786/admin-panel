@@ -165,7 +165,7 @@ const TopbarAdmin = () => {
                   <Link
                     href={`/${params.locale}/auth/admin/signin`}
                     className="block transition-all hover:text-white px-4 py-2 text-gray-800 hover:bg-red-500 rounded-b-lg">
-                    Signout
+                    Logout
                   </Link>
                 </div>
               )}

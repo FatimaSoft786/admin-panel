@@ -3,7 +3,7 @@ import getPath from "@/utils/path";
 import Link from "next/link";
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";
-import LanguageModal from "../../doctor/setting/LanguageModal";
+
 const page = () => {
   const path = getPath();
   return (
@@ -24,7 +24,7 @@ const page = () => {
         <div className=" bg-light-gray  h-[1px] mx-[20px] max-md:px-6" />
 
         <div className=" flex flex-row justify-between mx-[20px] max-md:px-6 mt-[50px] mb-[35px]">
-          <LanguageModal />
+       
           <FaChevronRight className=" flex justify-end items-end my-1" />
         </div>
         <div className=" bg-light-gray  h-[1px] mx-[20px] max-md:px-6" />
