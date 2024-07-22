@@ -7,7 +7,7 @@ export default function Index() {
   const params = useParams();
   const router = useRouter();
   useEffect(() => {
-    router.push(`/${params.locale}/auth/signin`);
+    router.push(`/${params.locale}/auth/admin/signin`);
   }, []);
   return <></>;
 }
