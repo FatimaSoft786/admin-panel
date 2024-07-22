@@ -2,6 +2,7 @@ import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 import { UiProviders } from "@/utils/UiProvider";
 import ReduxProvider from "../components/ReduxProvider";
 const poppins = Poppins({
@@ -32,7 +33,9 @@ const RootLayout = async (props) => {
       <body className={"bg-white"} suppressHydrationWarning={false}>
         <NextIntlClientProvider messages={messages}>
           <UiProviders>
-            <ReduxProvider>{props.children}</ReduxProvider>
+          <Toaster/>
+            <ReduxProvider>
+            {props.children}</ReduxProvider>
           </UiProviders>
         </NextIntlClientProvider>
       </body>

@@ -1,5 +1,5 @@
 "use client";
-import { Image } from "@nextui-org/react";
+import { Image, link } from "@nextui-org/react";
 import Link from "next/link";
 import { usePathname, useParams } from "next/navigation";
 import { useState } from "react";
@@ -21,6 +21,39 @@ const TopbarAdmin = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+
+  const header = [
+  { title: "Dashboard", link: "dashboard" },
+  {
+    title: "Appuntamenti",
+    link: "appointments",
+  },
+  {
+    title: "Specializzazione",
+    link: "specialties",
+  },
+  {
+    title: "Dottore",
+    link: "doctors",
+  },
+  {
+    title: "Paziente",
+    link: "patients",
+  },
+   {
+    title: "Recordings",
+    link: "recording",
+  },
+  {
+    title: "Recensioni",
+    link: "reviews"
+  },
+  {
+    title: "Transazioni",
+    link: "transactions"
+  }
+];
 
   return (
     <>
@@ -54,15 +87,8 @@ const TopbarAdmin = () => {
           className="flex-col items-start transition-all justify-start py-2 pb-1 pr-10 pl-0 box-border max-w-full hidden lg:flex"
         >
           <div className="m-0 w-auto flex flex-row text-dark-gray/50 items-start justify-between gap-10 max-xl:gap-3 max-w-full text-left text-md">
-            {[
-              "dashboard",
-              "appointments",
-              "specialties",
-              "doctors",
-              "patients",
-              "reviews",
-              "transactions",
-            ].map((link) => (
+            {
+              header.map(({title,link}) => (
               <Link
                 key={link}
                 href={`/${params.locale}/admin/${link}`}
@@ -72,7 +98,7 @@ const TopbarAdmin = () => {
                     : ""
                 }`}
               >
-                {link.charAt(0).toUpperCase() + link.slice(1)}
+                {title.charAt(0).toUpperCase() + title.slice(1)}
               </Link>
             ))}
           </div>
@@ -162,15 +188,7 @@ const TopbarAdmin = () => {
               </button>
             </div>
             <nav className="flex flex-col p-4">
-              {[
-                "dashboard",
-                "appointments",
-                "specialties",
-                "doctors",
-                "patients",
-                "reviews",
-                "transactions",
-              ].map((link) => (
+              {header.map(({link,title}) => (
                 <Link
                   key={link}
                   href={`/${params.locale}/admin/${link}`}
@@ -181,7 +199,7 @@ const TopbarAdmin = () => {
                   }`}
                   onClick={toggleSidebar}
                 >
-                  {link.charAt(0).toUpperCase() + link.slice(1)}
+                  {title.charAt(0).toUpperCase() + title.slice(1)}
                 </Link>
               ))}
             </nav>
