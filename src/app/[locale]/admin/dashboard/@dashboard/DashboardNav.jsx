@@ -42,7 +42,7 @@ const TopbarAdmin = () => {
     link: "patients",
   },
    {
-    title: "Recordings",
+    title: "Registrazioni",
     link: "recording",
   },
   {
