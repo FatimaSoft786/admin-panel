@@ -67,10 +67,10 @@ const LoginPage = () => {
             type="email"
             placeholder="Example@example.com"
              {...register('email', {
-                    required: 'email is required',
+                    required: 'E-mail è obbligatoria',
                     pattern: {
                       value: /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi,
-                      message: 'enter valid email',
+                      message: "Inserisci un'e-mail valida",
                     },
                   })}
             className={inputClass}
@@ -84,7 +84,7 @@ const LoginPage = () => {
               placeholder="Password"
               className={inputClass}
                {...register("password", {
-                  required: 'password is required',
+                  required: 'È richiesta la password',
                   minLength: 8
                 })}
             />
