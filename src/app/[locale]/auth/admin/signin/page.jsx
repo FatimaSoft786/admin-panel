@@ -97,12 +97,12 @@ const LoginPage = () => {
                   <p className="text-pure-red">{errors.password.message}</p>
                 )}
             <button type="submit" className={buttonClass}>Iscriviti</button>
-              <div className="text-center mt-2 mx-auto left-0 right-0">
+              {/* <div className="text-center mt-2 mx-auto left-0 right-0">
             <Link href={`/${path}/auth/admin/signup`} className="group gap-2">
               Non hai ancora un account?
               <span className="font-bold group-hover:underline">Iscriviti</span>
             </Link>
-          </div>
+          </div> */}
               <div className=" mt-2 justify-center items-center">
  <p className="text-pure-red text-center">{error}</p>
               </div>   
