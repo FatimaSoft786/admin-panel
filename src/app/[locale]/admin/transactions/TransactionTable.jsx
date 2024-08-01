@@ -69,6 +69,7 @@ const fetchData = async () => {
           }
         )
         .then((response) => {
+          
           setTransactions(response.data.payments_list);
         })
         .catch((error) => {
@@ -128,11 +129,11 @@ const fetchData = async () => {
                 <div className="table-cell place-content-center items-center justify-center py-3 px-4 max-lg:text-base max-sm:text-sm gap-1">
                   <div className="flex gap-2 items-center">
                     <Image
-                      src={data.patient.picture_url}
+                      src={data.patient.picture_url ? data.patient.picture_url : data.patient.default_picture_url}
                       className="size-8 max-sm:hidden"
                       alt="User Icon"
                     />
-                    {data.patient.firstName}{data.patient.lastName}
+                    {data.patient.firstName} {data.patient.lastName}
                   </div>
                 </div>
                 <div className="table-cell place-content-center items-center justify-center py-3 pl-8 max-lg:text-base max-sm:text-sm gap-1">

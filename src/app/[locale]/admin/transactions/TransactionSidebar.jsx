@@ -29,7 +29,7 @@ export default function TransactionSidebar({ review }) {
           review && "!bg-[#008000]"
         }`}
       >
-        {review ? "Paid" : "Unpaid"}
+        {review ? t('Paid-tr') : "Non pagato"}
       </button>
       <motion.div
         onClick={() => setIsOpen(!isOpen)}
@@ -100,11 +100,11 @@ export default function TransactionSidebar({ review }) {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-dark-gray">{t('Our fee')} :</span>
-              <span className="text-black">${review.admin_percentage_amount}</span>
+              <span className="text-black">${review.fee * 0.25}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-dark-gray">{t('payment method')} :</span>
-              <span className="text-black">Card</span>
+              <span className="text-black">{t('Card')}</span>
             </div>
           </div>
           <hr className="w-full px-8 pt-1" />
