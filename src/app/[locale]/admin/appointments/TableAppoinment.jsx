@@ -3,8 +3,11 @@ import MySwitcher from "@/app/components/Switcher";
 import { Image, Switch } from "@nextui-org/react";
 import React , {useEffect,useState} from "react";
 import axios from "axios";
+import { useTranslations } from "next-intl";
 
 const TableAppointment = () => {
+
+  const t = useTranslations("Admin");
 
    const [appointments, setAppointments] = useState([]);
  const fetchData = async () => {
@@ -37,12 +40,12 @@ const TableAppointment = () => {
         <div className="table-header-group bg-light-gray text-black">
           <div className="table-row">
             {[
-              "Doctor Name",
-              "Specialty",
-              "Patient Name",
-              "Appointment Time",
-              "Status",
-              "Amount",
+              t('Doctor name'),
+              t('Specialty'),
+              t('Patient Name'),
+              t('Appointment time'),
+              t('Status'),
+              t('Amount'),
             ].map((header, index) => (
               <div
                 key={index}

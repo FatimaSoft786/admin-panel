@@ -4,7 +4,11 @@ import Deletebtn from "@/app/components/Deletebtn";
 import EditBtn from "@/app/components/EditBtn";
 import axios from "axios";
 
+ import { useTranslations } from "next-intl";
+
 const TableSpecialities = () => {
+
+   const t = useTranslations("Admin");
 
   // const specialtiesData = Array.from({ length: 6 }).map((_, index) => ({
   //   id: 14233 + index,
@@ -56,7 +60,7 @@ const TableSpecialities = () => {
       <div className="mx-4 border">
         {/* Header Table */}
         <div className="w-full bg-light-gray text-black grid grid-cols-3 gap-4 px-6 py-3">
-          {["#", "Specialties", "Actions"].map((header, index) => (
+          {["#", t('Specialities'), t('Actions')].map((header, index) => (
             <div
               key={index}
               className="font-semibold text-left last:text-center text-lg px-6 last:pl-14 py-1 max-lg:text-base max-sm:text-sm"

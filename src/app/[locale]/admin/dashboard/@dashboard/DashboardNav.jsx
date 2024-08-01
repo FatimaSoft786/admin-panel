@@ -5,8 +5,10 @@ import { usePathname, useParams } from "next/navigation";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useTranslations } from "next-intl";
 
 const TopbarAdmin = () => {
+  const t = useTranslations('Admin')
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
@@ -24,33 +26,33 @@ const TopbarAdmin = () => {
 
 
   const header = [
-  { title: "Dashboard", link: "dashboard" },
+  { title: t('Dashboard'), link: "dashboard" },
   {
-    title: "Appuntamenti",
+    title: t('Appointments'),
     link: "appointments",
   },
   {
-    title: "Specializzazione",
+    title: t('Specialities'),
     link: "specialties",
   },
   {
-    title: "Dottore",
+    title: t('Doctors'),
     link: "doctors",
   },
   {
-    title: "Paziente",
+    title: t('Patient'),
     link: "patients",
   },
    {
-    title: "Registrazioni",
+    title: t('Recordings'),
     link: "recording",
   },
   {
-    title: "Recensioni",
+    title: t('Reviews'),
     link: "reviews"
   },
   {
-    title: "Transazioni",
+    title: t('Transactions'),
     link: "transactions"
   }
 ];

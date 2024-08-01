@@ -1,4 +1,5 @@
 import TableAppointment from "./TableAppoinment";
+import { useTranslations } from "next-intl";
 
   const appointmentData = Array.from({ length: 6 }).map((_, index) => ({
     doctorName: "Hamza Yasin",
@@ -10,10 +11,11 @@ import TableAppointment from "./TableAppoinment";
     amount: "$300",
   }));
 export default function AppointmentAdmin() {
+  const t = useTranslations("Admin");
   return (
     <div className="flex flex-col py-6 h-auto gap-4">
         <h1 className="font-bold text-3xl max-md:text-2xl mt-4 mb-2 px-4">
-        Appointments!
+        {t('Appointments')}
       </h1>
       <TableAppointment />
     </div>

@@ -4,16 +4,10 @@ import { Image } from "@nextui-org/react";
 import React, { useState,useEffect } from "react";
 import TransactionSidebar from "./TransactionSidebar";
 import axios from "axios";
+import { useTranslations } from "next-intl";
 
 
-const headers = [
-  "Invoice Number",
-  "Patient ID",
-  "Patient Name",
-  "Total Amount",
-  "Status",
-  "Actions",
-];
+
 const data = [
   {
     patientName: "John smith",
@@ -48,6 +42,17 @@ const data = [
    
 
 const TransactionTable = () => {
+
+  const t = useTranslations('Admin')
+
+  const headers = [
+  t('Invoice number'),
+  t('Patient ID'),
+  t('Patient Name'),
+  t('Total Amount'),
+  t('Status'),
+   t('Actions'),
+];
 
   const [transactions, setTransactions] = useState([]);
 

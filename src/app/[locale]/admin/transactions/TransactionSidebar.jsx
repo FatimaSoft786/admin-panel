@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import moment from "moment";
+import { useTranslations } from "next-intl";
 
 export default function TransactionSidebar({ review }) {
+  const t = useTranslations('Admin')
   const [isOpen, setIsOpen] = useState(false);
   console.log(review);
 
@@ -43,7 +45,7 @@ export default function TransactionSidebar({ review }) {
         transition={{ duration: 0.5 }}
       >
         <div className="text-left flex items-center border-b h-20 py-6 px-6 relative">
-          <h1 className="text-xl font-bold">Transaction Details :</h1>
+          <h1 className="text-xl font-bold">{t('Transaction details')} :</h1>
           <RxCross2
             onClick={() => setIsOpen(false)}
             className="text-xl right-6 absolute cursor-pointer "
@@ -58,18 +60,18 @@ export default function TransactionSidebar({ review }) {
               />
               <div className="flex flex-col text-dark-gray justify-center ">
                 <h1 className="text-lg">
-                  Sending money to <b className="text-black">Dr.{review.doctor.firstName}{review.doctor.lastName}</b>
+                  {t('Sending money to')} <b className="text-black">Dr.{review.doctor.firstName}{review.doctor.lastName}</b>
                 </h1>
-                <span>Sent</span>
+                {/* <span>Sent</span> */}
               </div>
             </div>
             <h1 className="text-xl font-bold">${review.fee}</h1>
           </div>
           <hr className="w-full px-8 pt-1" />
           <div>
-            <h1 className="font-bold text-base">Details :</h1>
+            <h1 className="font-bold text-base">{t('Details')}:</h1>
             <div className="flex justify-between items-center">
-              <span className="text-dark-gray">Transaction Number :</span>
+              <span className="text-dark-gray">{t('Transaction number')} :</span>
               <span className="text-black">#{review._id}</span>
             </div>
             <div className="flex justify-between items-center">
@@ -81,27 +83,27 @@ export default function TransactionSidebar({ review }) {
                     : "bg-pure-red/20 text-pure-red"
                 }`}
               >
-                {review ? "Paid" : "Pending"}
+                {review ? t('Paid-tr') : "Pending"}
               </button>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-dark-gray">Transaction Date :</span>
+              <span className="text-dark-gray">{t('Transaction date')} :</span>
               <span className="text-black">{moment(review.createdAt).format('DD MMM YYYY hh:mm:ss')}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-dark-gray">Recipient :</span>
+              <span className="text-dark-gray">{t('Recipient')} :</span>
               <span className="text-black">Dr.{review.doctor.firstName}{review.doctor.lastName}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-dark-gray">Amount Send :</span>
+              <span className="text-dark-gray">{t('Amount send')} :</span>
               <span className="text-black">${review.fee}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-dark-gray">Our Fee :</span>
+              <span className="text-dark-gray">{t('Our fee')} :</span>
               <span className="text-black">${review.admin_percentage_amount}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-dark-gray">Payment Method :</span>
+              <span className="text-dark-gray">{t('payment method')} :</span>
               <span className="text-black">Card</span>
             </div>
           </div>
@@ -119,14 +121,14 @@ export default function TransactionSidebar({ review }) {
               <span className="text-black">123456789</span>
             </div> */}
           </div>
-          <hr className="w-full px-8 pt-1" />
+          {/* <hr className="w-full px-8 pt-1" /> */}
           {/* note */}
-          <div className="flex flex-col py-1 gap-2">
-            <span className="text-black font-bold">Note :</span>
+          {/* <div className="flex flex-col py-1 gap-2">
+            <span className="text-black font-bold">{t('Note')} :</span>
             <span className="text-dark-gray border w-full p-2">
               No note.
             </span>
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </div>

@@ -4,14 +4,8 @@ import { Image, Switch } from "@nextui-org/react";
 import React, {useEffect,useState} from "react";
 import axios from "axios";
 import moment from 'moment';
+import { useTranslations } from "next-intl";
 
-const headers = [
-  "Doctor Name",
-  "Specialty",
-  "Member Since",
-  "Earned",
-  "Account Status",
-];
 
 const data = [
   {
@@ -80,6 +74,16 @@ const data = [
 ];
 
 const TableDoctors = () => {
+
+  const t = useTranslations('Admin');
+  const headers = [
+  t('Doctor name'),
+  t('Specialty'),
+  t('Member since'),
+  t('Earned'),
+  t('Account Status'),
+];
+
 
   const [doctors, setDoctors] = useState([]);
     const fetchData = async () => {

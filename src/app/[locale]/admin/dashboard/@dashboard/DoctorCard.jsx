@@ -4,8 +4,11 @@ import React,{useState,useEffect} from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation"
 import axios from "axios";
+import { useTranslations } from "next-intl";
 
 const DoctorCard = ({ doctorRequests }) => {
+
+  const t = useTranslations("Admin");
 
  const params = useParams();
 const [request, setRequest] = useState([]);
@@ -96,10 +99,10 @@ const [request, setRequest] = useState([]);
   return (
     <div className="relative overflow-x-auto">
       <div className="w-full bg-light-gray font-bold flex text-left h-[48px] px-6 items-center">
-        <div className="w-[40%] flex ">Doctor Name</div>
-        <div className="w-[40%] flex items-center pl-4 max-md:pl-2">Specialty</div>
+        <div className="w-[40%] flex ">{t('Doctor name')}</div>
+        <div className="w-[40%] flex items-center pl-4 max-md:pl-2">{t('Specialty')}</div>
         <div className="w-1/3 flex items-center justify-center pl-20">
-          Actions
+          {t('Actions')}
         </div>
       </div>
       {request.map((data, index) => (
@@ -125,7 +128,7 @@ const [request, setRequest] = useState([]);
               console.log(data._id);
               accountApproved(data._id);
             }} className="bg-lime-green max-sm:bg-white rounded-lg p-2.5 text-white max-sm:text-[12px] max-sm:px-0 max-sm:py-2 tracking-wider text-[14px] px-9 max-lg:px-3 flex items-center gap-2">
-              <span className="max-sm:hidden block">Accept</span>
+              <span className="max-sm:hidden block">{t('Accept')}</span>
               <img
                 src="/svg/check.svg"
                 sizes="24px"
@@ -135,7 +138,7 @@ const [request, setRequest] = useState([]);
             <button onClick={()=>{
             accountDeclined(data._id);
             }} className="bg-pure-red max-sm:bg-white rounded-lg p-2.5 text-white max-sm:text-[12px] max-sm:px-0 max-sm:py-2 tracking-wider text-[14px] px-9 max-lg:px-3 flex items-center gap-2">
-              <span className="max-sm:hidden block">Declined</span>
+              <span className="max-sm:hidden block">{t('Decline')}</span>
               <img
                 src="/svg/delete.svg"
                 sizes="24px"

@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import DoctorCard from "./DoctorCard";
 import axios from "axios";
 
-
+import { useTranslations } from "next-intl";
 
   
 
@@ -34,7 +34,7 @@ const doctorRequests = [
 
 const DashboardAdmin = () => {
   const params = useParams();
-
+const t = useTranslations("Admin");
 
     const[doctors,setDoctors] = useState(0);
     const[patients,setPatients] = useState(0);
@@ -111,28 +111,28 @@ const DashboardAdmin = () => {
 const cardsData = [
   {
     icon: "/svg/adminDashboard/doctorCard.svg",
-    title: "Doctors",
+    title: t('Doctors'),
     count: doctors,
     link: "/admin/doctors",
     bgColor: "bg-cyan-card",
   },
   {
     icon: "/svg/adminDashboard/patientCard.svg",
-    title: "Patients",
+    title: t('Patient'),
     count: patients,
     link: "/admin/patients",
     bgColor: "bg-green-card",
   },
   {
     icon: "/svg/adminDashboard/appointmentCard.svg",
-    title: "Appointments",
+    title: t('Appointments'),
     count: appointments,
     link: "/admin/appointments",
     bgColor: "bg-red-card",
   },
   {
     icon: "/svg/adminDashboard/incomeCard.svg",
-    title: "Income",
+    title: (t('Income')),
     count: "$"+adminRevenue,
     link: "/admin/doctors",
     bgColor: "bg-yellow-card",
@@ -146,7 +146,7 @@ const cardsData = [
     <>
       <div className="flex container flex-col mx-auto py-6 h-auto gap-4">
         <h1 className="font-bold text-3xl max-md:text-2xl mt-4 mb-8 px-4">
-          Welcome Admin!
+          {t("Welcome admin")}
         </h1>
         {/* grid */}
         <div className="grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
@@ -178,7 +178,7 @@ const cardsData = [
         </div>
         <div className="border rounded-lg mx-[14px]">
           <h1 className="text-2xl font-bold pt-10 pb-4 px-6">
-            Doctor Request For Account Approval
+            {t('Doctor Request For Account Approval')}
           </h1>
           <DoctorCard doctorRequests={request} />
         </div>

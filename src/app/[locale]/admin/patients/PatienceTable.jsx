@@ -3,16 +3,10 @@ import React, { useEffect,useState } from "react";
 import { Image } from "@nextui-org/react";
 import axios from "axios";
 import moment from "moment";
+import { useTranslations } from "next-intl";
 
 
-const headers = [
-  "Patient ID",
-  "Patient Name",
-  "Address",
-  "Phone",
-  "Last Visit",
-  "Paid",
-];
+
 
 const data = [
   {
@@ -58,6 +52,17 @@ const data = [
 ];
 
 const PatienceTable = () => {
+
+  const t = useTranslations('Admin')
+
+  const headers = [
+  t('Patient ID'),
+  t('Patient Name'),
+  t('City'),
+  t('Phone'),
+  t('Last visit'),
+  t('Paid'),
+];
 
   const [patients, setPatients] = useState([]);
 

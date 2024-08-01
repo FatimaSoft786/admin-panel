@@ -5,15 +5,9 @@ import React, { useEffect, useState } from "react";
 import Deletebtn from "@/app/components/Deletebtn";
 import axios from "axios";
 import moment from "moment";
+import { useTranslations } from "next-intl";
 
-const headers = [
-  "Patient Name",
-  "Doctor Name",
-  "Rating",
-  "Description",
-  "Date",
-  "Actions",
-];
+
 
 const data = Array.from({ length: 6 }).map((_, index) => ({
   doctorName: "John Smith",
@@ -25,6 +19,19 @@ const data = Array.from({ length: 6 }).map((_, index) => ({
 }));
 
 const ReviewTable = () => {
+ 
+  const t = useTranslations('Admin')
+
+  const headers = [
+  t('Patient Name'),
+  t('Doctor name'),
+   t('Rating'),
+   t('Description'),
+   t('Date'),
+   t('Actions'),
+];
+
+
   const [doctors, setDoctors] = useState([]);
 
    const fetchData = async () => {
