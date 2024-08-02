@@ -75,7 +75,7 @@ const TableAppointment = () => {
               <div className="table-cell place-content-center text-center px-4 ">
                 <div className="flex items-center justify-center gap-2">
                   <Image
-                    src={appointment.patient.picture_url}
+                    src={appointment.patient.picture_url ? appointment.patient.picture_url : appointment.patient.default_picture_url}
                     className="size-8"
                     alt="User Icon"
                   />
@@ -97,7 +97,7 @@ const TableAppointment = () => {
                 {/* <MySwitcher status={appointment.appointment_status} /> */}
               </div>
               <div className="table-cell place-content-center text-center px-4 max-lg:text-base max-sm:text-sm">
-                ${appointment.session_fee}
+                ${appointment.doctor_percentage_amount}
               </div>
               <hr className="w-full h-2 absolute bottom-0 left-0" />
             </div>

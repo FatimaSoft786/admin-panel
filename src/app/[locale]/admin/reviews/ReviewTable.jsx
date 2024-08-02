@@ -98,7 +98,7 @@ const ReviewTable = () => {
     const digitMatch = str.match(/\d/g);
     // Join the digits and slice the first four digits
     if (digitMatch) {
-      const digits = digitMatch.join('').slice(0, 4);
+      const digits = digitMatch.join('').slice(0, 10);
       return digits;
     }
     return "";

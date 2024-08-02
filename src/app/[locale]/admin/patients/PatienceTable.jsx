@@ -61,7 +61,7 @@ const PatienceTable = () => {
   t('City'),
   t('Phone'),
   t('Last visit'),
-  t('Paid'),
+  
 ];
 
   const [patients, setPatients] = useState([]);
@@ -99,7 +99,17 @@ const PatienceTable = () => {
   };
 
 
-
+// Function to get the first four digits
+  const getFirstFourDigits = (str) => {
+    // Use a regular expression to match digits
+    const digitMatch = str.match(/\d/g);
+    // Join the digits and slice the first four digits
+    if (digitMatch) {
+      const digits = digitMatch.join('').slice(0, 10);
+      return digits;
+    }
+    return "";
+  };
 
   return (
     <div className=" overflow-x-auto">
@@ -123,12 +133,13 @@ const PatienceTable = () => {
             {patients.map((row, index) => (
               <div key={index} className="table-row">
                 <div className="table-cell pl-6 text-left place-content-center py-2 px-2 max-sm:px-1 max-lg:text-base max-sm:text-sm">
-                  {row._id}
+                 {getFirstFourDigits(row._id)}
+                  
                 </div>
                 <div className="table-cell items-center max-md:truncate text-left text-ellipsis max-sm:max-w-[50px]  place-content-center py-2 px-2 max-sm:px-1 max-lg:text-base max-sm:text-sm">
                   <div className="flex items-center">
                     <Image
-                      src={row.picture_url}
+                      src={row.picture_url ? row.picture_url: row.default_picture_url}
                       className="w-8 h-8 mr-2 max-md:hidden"
                       alt="User Icon"
                     />
@@ -147,9 +158,9 @@ const PatienceTable = () => {
                     <span className="text-black">{moment(row.createdAt).format('hh:mm')}</span>
                   </div>
                 </div>
-                <div className="table-cell text-left place-content-center py-2 px-2 max-sm:px-1 max-lg:text-base max-sm:text-sm">
-                  {/* {row.paid} */} $0
-                </div>
+                {/* <div className="table-cell text-left place-content-center py-2 px-2 max-sm:px-1 max-lg:text-base max-sm:text-sm">
+                  {row.paid} $0
+                </div> */}
                 <hr className="w-full h-2 absolute bottom-0 left-0" />
               </div>
             ))}
