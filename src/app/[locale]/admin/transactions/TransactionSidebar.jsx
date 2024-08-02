@@ -96,11 +96,11 @@ export default function TransactionSidebar({ review }) {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-dark-gray">{t('Amount send')} :</span>
-              <span className="text-black">${review.fee}</span>
+              <span className="text-black">{review.fee}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-dark-gray">{t('Our fee')} :</span>
-              <span className="text-black">${review.fee * 0.25}</span>
+              <span className="text-black">€{review.fee * 0.25}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-dark-gray">{t('payment method')} :</span>
