@@ -91,10 +91,17 @@ const TableAppointment = () => {
                 </div>
               </div>
               <div className="table-cell place-content-center items-center max-lg:pl-6 pl-12 max-lg:text-base max-sm:text-sm">
-              {
-                appointment.appointment_status === 'completed' ? (<img src="/svg/adminDashboard/success.svg"/>): (<img src="/svg/adminDashboard/failed.svg"/>)
-              }
-                {/* <MySwitcher status={appointment.appointment_status} /> */}
+              {/* {
+                appointment.appointment_status === 'completed' ? (<p>Completato</p>) : appointment.appointment_status === 'waiting' ? (<p>In programma</p>) : appointment.appointment_status === 'cancelled' ? (<p>Cancellato</p>)
+              } */}
+      {appointment.appointment_status === 'completed' ? (
+        <p className="rounded-full bg-green-100 text-center text-green-500 max-lg:text-sm max-sm:text-sm px-0">Completato</p>
+      ) : appointment.appointment_status === 'waiting' ? (
+        <p className=" rounded-full bg-yellow-50 text-center text-yellow-500 max-lg:text-sm max-sm:text-sm">In programma</p>
+      ) : appointment.appointment_status === 'cancelled' ? (
+        <p className=" rounded-full bg-red-300 text-center text-pure-red max-lg:text-sm max-sm:text-sm">Cancellato</p>
+      ): (<p></p>)}
+               
               </div>
               <div className="table-cell place-content-center text-center px-4 max-lg:text-base max-sm:text-sm">
                 ${appointment.doctor_percentage_amount}
