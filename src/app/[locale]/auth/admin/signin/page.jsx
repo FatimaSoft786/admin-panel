@@ -96,7 +96,7 @@ const LoginPage = () => {
           {errors.password && (
                   <p className="text-pure-red">{errors.password.message}</p>
                 )}
-            <button type="submit" className={buttonClass}>Iscriviti</button>
+            <button type="submit" className={buttonClass}>Accedi</button>
               {/* <div className="text-center mt-2 mx-auto left-0 right-0">
             <Link href={`/${path}/auth/admin/signup`} className="group gap-2">
               Non hai ancora un account?
