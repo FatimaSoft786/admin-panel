@@ -133,7 +133,7 @@ const cardsData = [
   {
     icon: "/svg/adminDashboard/incomeCard.svg",
     title: (t('Income')),
-    count: "€"+adminRevenue,
+    count: "€ "+adminRevenue,
     link: "/admin/doctors",
     bgColor: "bg-yellow-card",
   },

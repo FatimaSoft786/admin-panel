@@ -104,7 +104,7 @@ const TableAppointment = () => {
                
               </div>
               <div className="table-cell place-content-center text-center px-4 max-lg:text-base max-sm:text-sm">
-                ${appointment.doctor_percentage_amount}
+                € {appointment.doctor_percentage_amount}
               </div>
               <hr className="w-full h-2 absolute bottom-0 left-0" />
             </div>
