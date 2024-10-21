@@ -13,6 +13,7 @@ const TableAppointment = () => {
  const fetchData = async () => {
       try {
           const response = await axios.get('https://video-medico-backend-production.up.railway.app/api/appointment/fetchAll');
+          console.log(response.data.appointments)
          setAppointments(response.data.appointments);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -60,7 +61,7 @@ const TableAppointment = () => {
           {appointments.map((appointment, index) => (
             <div key={index} className="table-row relative">
               <div className="table-cell place-content-center text-center px-4">
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center justify-center py-2 gap-2">
                   <Image
                     src={appointment.doctor.picture_url ? appointment.doctor.picture_url : appointment.doctor.default_picture_url}
                     className="size-8"
@@ -75,11 +76,13 @@ const TableAppointment = () => {
               <div className="table-cell place-content-center text-center px-4 ">
                 <div className="flex items-center justify-center gap-2">
                   <Image
-                    src={appointment.patient.picture_url ? appointment.patient.picture_url : appointment.patient.default_picture_url}
+                  src={appointment.doctor.default_picture_url}
+                    // src={appointment.patient.picture_url ? appointment.patient.picture_url : appointment.patient.default_picture_url}
                     className="size-8"
                     alt="User Icon"
                   />
-                  {appointment.patient.firstName} {appointment.patient.lastName}
+                  {/* {appointment.patient.firstName} {appointment.patient.lastName} */}
+                  Test user
                 </div>
               </div>
               <div className="table-cell place-content-center text-center px-4 py-2 max-lg:text-base max-sm:text-sm">

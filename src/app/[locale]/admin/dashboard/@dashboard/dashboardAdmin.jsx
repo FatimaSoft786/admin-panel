@@ -5,7 +5,7 @@ import React,{useState,useEffect} from "react";
 import { useParams } from "next/navigation";
 import DoctorCard from "./DoctorCard";
 import axios from "axios";
-
+import { AiFillEuroCircle } from "react-icons/ai";
 import { useTranslations } from "next-intl";
 
   
@@ -131,9 +131,9 @@ const cardsData = [
     bgColor: "bg-red-card",
   },
   {
-    icon: "/svg/adminDashboard/incomeCard.svg",
+    icon: "/svg/adminDashboard/euro.png",
     title: (t('Income')),
-    count: "€ "+adminRevenue,
+    count: +adminRevenue,
     link: "/admin/doctors",
     bgColor: "bg-yellow-card",
   },
