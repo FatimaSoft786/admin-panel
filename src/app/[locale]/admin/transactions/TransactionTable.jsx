@@ -69,7 +69,7 @@ const fetchData = async () => {
           }
         )
         .then((response) => {
-          
+          console.log(response.data.payments_list);
           setTransactions(response.data.payments_list);
         })
         .catch((error) => {
