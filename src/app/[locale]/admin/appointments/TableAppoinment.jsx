@@ -60,8 +60,8 @@ const TableAppointment = () => {
         <div className="table-row-group text-dark-gray">
           {appointments.map((appointment, index) => (
             <div key={index} className="table-row relative">
-              <div className="table-cell place-content-center text-center px-4">
-                <div className="flex items-center justify-center mt-2 gap-2">
+              <div className="table-cell place-content-center text-center px-4 py-2">
+                <div className="flex items-center justify-center gap-2">
                   <Image
                     src={appointment.doctor.picture_url ? appointment.doctor.picture_url : appointment.doctor.default_picture_url}
                     className="size-8"
@@ -73,7 +73,7 @@ const TableAppointment = () => {
               <div className="table-cell place-content-center text-center px-4  max-lg:text-base max-sm:text-sm">
                 {appointment.doctor.specialist}
               </div>
-              <div className="table-cell place-content-center text-center px-4 ">
+              <div className="table-cell place-content-center text-center mt-1.5 px-4 ">
                 <div className="flex items-center justify-center gap-2">
                   <Image
                  
@@ -85,7 +85,7 @@ const TableAppointment = () => {
               
                 </div>
               </div>
-              <div className="table-cell place-content-center text-center px-4 py-2 max-lg:text-base max-sm:text-sm">
+              <div className="table-cell place-content-center text-center px-4 py-3 max-lg:text-base max-sm:text-sm">
                 <div className="flex flex-col items-start pl-20 max-lg:pl-7 max-sm:pl-2">
                   <span>{appointment.appointment_date}</span>
                   <span className="text-black">
