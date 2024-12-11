@@ -63,7 +63,7 @@ const TableAppointment = () => {
               <div className="table-cell place-content-center text-center px-4 py-2">
                 <div className="flex items-center justify-center gap-2">
                   <Image
-                    src={appointment.doctor.picture_url ? appointment.doctor.picture_url : appointment.doctor.default_picture_url}
+                    src={appointment.doctor.default_picture_url}
                     className="size-8"
                     alt="User Icon"
                   />
